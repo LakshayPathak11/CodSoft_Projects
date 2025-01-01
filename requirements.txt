@@ -1,0 +1,10 @@
+streamlit
+asyncio
+langchain
+together
+langchain_together
+fitz
+pinecone-client
+langchain-pinecone
+langchain-core
+pyttsx3
