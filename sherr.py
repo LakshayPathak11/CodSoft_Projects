@@ -15,13 +15,11 @@ import warnings
 import time
 import pyttsx3
 import pyttsx3
-from gtts import gTTS
 
 def speak_message(message):
-    tts = gTTS(text=message, lang='en')
-    tts.save("message.mp3")
-    os.system("mpg321 message.mp3") 
-    
+    engine = pyttsx3.init()
+    engine.say(message)
+    engine.runAndWait()
 
 # Suppress warnings
 warnings.filterwarnings('ignore')
