@@ -14,11 +14,20 @@ import re
 import warnings
 import time
 import pyttsx3
+import pyttsx3
+import platform
 
 def speak_message(message):
-    engine = pyttsx3.init()
-    engine.say(message)
-    engine.runAndWait()
+    try:
+        engine = pyttsx3.init()
+        engine.say(message)
+        engine.runAndWait()
+    except RuntimeError as e:
+        if "eSpeak" in str(e):
+            print("eSpeak is not available, falling back to alternative method.")
+            # Optionally handle the fallback here (e.g., logging the issue)
+        else:
+            raise  # Re-raise the error if it's not related to eSpeak
     
 
 # Suppress warnings
