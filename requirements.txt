@@ -10,4 +10,3 @@ langchain-core
 pyttsx3
 langchain-community
 PyMuPDF
-gTTs
