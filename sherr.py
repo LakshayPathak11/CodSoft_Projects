@@ -15,19 +15,12 @@ import warnings
 import time
 import pyttsx3
 import pyttsx3
-import platform
+from gtts import gTTS
 
 def speak_message(message):
-    try:
-        engine = pyttsx3.init()
-        engine.say(message)
-        engine.runAndWait()
-    except RuntimeError as e:
-        if "eSpeak" in str(e):
-            print("eSpeak is not available, falling back to alternative method.")
-            # Optionally handle the fallback here (e.g., logging the issue)
-        else:
-            raise  # Re-raise the error if it's not related to eSpeak
+    tts = gTTS(text=message, lang='en')
+    tts.save("message.mp3")
+    os.system("mpg321 message.mp3") 
     
 
 # Suppress warnings
